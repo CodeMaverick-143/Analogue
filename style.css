@@ -1,0 +1,158 @@
+body {
+    background: #0a0a0a;
+    color: #f5f5f5;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.frame {
+    padding: 20px;
+    background: linear-gradient(45deg, #1c1c1c, #3d3d3d); /* Dark gradient background */
+    border: 5px solid transparent; /* Transparent border for glow */
+    border-radius: 15px;
+    background-clip: padding-box;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.8); /* Glowing effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: glow 1.5s ease-in-out infinite alternate; /* Animation for the glowing effect */
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 0, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 0, 255, 1);
+    }
+}
+
+.clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.analogue-clock {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    width: 300px;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+
+.dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ff007f;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    z-index: 10;
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.9);
+}
+
+.hour-hand, .minute-hand, .second-hand {
+    position: absolute;
+    z-index: 5;
+    background: linear-gradient(180deg, #ff006e, #ff3366);
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255, 0, 119, 0.7);
+}
+
+.hour-hand {
+    width: 6px;
+    height: 70px;
+    top: 75px;
+    transform-origin: 50% 72px;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.minute-hand {
+    width: 4px;
+    height: 100px;
+    top: 50px;
+    left: 50%;
+    margin-left: -2px;
+    transform-origin: 50% 105px;
+}
+
+.second-hand {
+    width: 2px;
+    height: 120px;
+    top: 30px;
+    left: 50%;
+    margin-left: -1px;
+    transform-origin: 50% 125px;
+    background: #00c8ff;
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.9);
+}
+
+span {
+    display: inline-block;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 20px;
+    font-weight: 600;
+    z-index: 4;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.h12 { top: 30px; left: 50%; margin-left: -9px; }
+.h3 { top: 140px; right: 30px; }
+.h6 { bottom: 30px; left: 50%; margin-left: -5px; }
+.h9 { left: 32px; top: 140px; }
+
+.diallines {
+    position: absolute;
+    z-index: 2;
+    width: 2px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.6);
+    left: 50%;
+    margin-left: -1px;
+    transform-origin: 50% 150px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.diallines:nth-of-type(5n) {
+    height: 25px;
+    width: 4px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Digital clock styles */
+.digital-clock {
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    font-size: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}
+
+#digital-time {
+    display: inline-block;
+    text-align: center;
+}
+
